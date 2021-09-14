@@ -1,20 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace EmployeeManagementApi.InMemoryInfrastructure.Models
 {
-    public class Employee
+    
+    public class Employee : EmployeeBase
     {
-        public int Id { get; set; }
-
-        [Required]
-        public string Name { get; set; }
-
         [Required]
         public bool IsManager { get; set; }
 
         [Required]
         public bool Active { get; set; }
 
-        public int ManagerId { get; set; }
+        public DateTime HiredDate {get; set;}
     }
 }

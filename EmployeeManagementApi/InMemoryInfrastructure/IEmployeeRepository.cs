@@ -7,7 +7,11 @@ namespace EmployeeManagementApi.InMemoryInfrastructure
     {
         Employee GetEmployee(int customerId);
         Employee CreateEmployee(Employee customer);
-        IList<Employee> GetEmployees();
+        IList<EmployeeBase> GetEmployees();
         bool Exists(int employeeId);
+        Employee GetEmployeeById(int employeeId);
+        string CreateNewEmployee(string name, int managerId, bool isManager);
+        void SetInactive(int employeeId);
+        IList<EmployeeBase> GetInactiveManagers();
     }
 }

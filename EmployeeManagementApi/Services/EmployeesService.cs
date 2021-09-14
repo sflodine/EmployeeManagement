@@ -13,9 +13,25 @@ namespace EmployeeManagementApi.Services
             _employeeRepository = employeeRepository;
         }
 
-        public IList<Employee> GetAll()
+        public IList<EmployeeBase> GetAll()
         {
             return _employeeRepository.GetEmployees();
+        }
+
+        public Employee GetEmployeeById(int employeeId){
+            return _employeeRepository.GetEmployeeById(employeeId);
+        }
+
+        public string CreateEmployee(string name, int managerId, bool isManager){
+            return _employeeRepository.CreateNewEmployee(name, managerId, isManager);
+        }
+
+        public void SetInactive(int employeeId){
+            _employeeRepository.SetInactive(employeeId);
+        }
+
+        public IList<EmployeeBase> GetInactiveManagers(){
+            return _employeeRepository.GetInactiveManagers();
         }
     }
 }

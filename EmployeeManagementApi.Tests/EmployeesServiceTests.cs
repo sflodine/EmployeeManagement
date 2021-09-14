@@ -19,5 +19,15 @@ namespace EmployeeManagementApi.Tests
 
             repository.Received().GetEmployees();
         }
+
+        [Test]
+        public void GetAll_WhenCalled_CallsGetInactiveManagers(){
+            var repository = Substitute.For<IEmployeeRepository>();
+            var service = new EmployeesService(repository);
+
+            service.GetAll();
+
+            repository.Received().GetInactiveManagers();
+        }
     }
 }
